@@ -3,7 +3,7 @@ set number
 set cursorline
 
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
-let &colorcolumn="81,90,100,110,".join(range(120,999),",")
+let &colorcolumn="81,".join(range(120,999),",")
 
 set backspace=indent,eol,start
 set ts=2
