@@ -1,1 +1,3 @@
-ln -s vimrc > ~/.vimrc
+cat vimrc
+rm -r ~/.vimrc
+ln -s vimrc ~/.vimrc
