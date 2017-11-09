@@ -11,7 +11,6 @@ set tabstop=2
 set shiftwidth=2
 set history=50
 set ruler
-set list
 
 if &t_Co > 2 || has("gui_running")
 	syntax on
