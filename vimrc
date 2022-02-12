@@ -1,16 +1,21 @@
-
 set number
+
+" convifure status line
+set statusline=%f%m%r%h\ [%L]\ [%{&ff}]\ %y%=[%p%%]\ [line:%05l,col:%02v]
+set laststatus=2
+" Configure tabbing - using PEP8 style
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Set cursor crosshairs
 set cursorline
+set cursorcolumn
 
+" Highlight all spaces past column 80
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
-let &colorcolumn="81,".join(range(120,999),",")
-
-set backspace=indent,eol,start
-set ts=2
-set tabstop=2
-set shiftwidth=2
-set history=50
-set ruler
+let &colorcolumn="".join(range(80,999),",")
 
 if &t_Co > 2 || has("gui_running")
 	syntax on
@@ -52,4 +57,29 @@ else
 
 endif " has("autocmd")
 
+set backspace=indent,eol,start
+set tabstop=2      " To match the sample file
+set shiftwidth=2
+set noexpandtab    " Use tabs, not spaces
+%retab!            " Retabulate the whole file
+set history=50
+set ruler
 
+
+" ===================================================================
+" ====						   	DEFAULT VIMRC BELOW THIS LINE              ====
+" ===================================================================
+" Configuration file for vim
+set modelines=0		" CVE-2007-2438
+
+" Normally we use vim-extensions. If you want true vi-compatibility
+" remove change the following statements
+set nocompatible	" Use Vim defaults instead of 100% vi compatibility
+set backspace=2		" more powerful backspacing
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
+let skip_defaults_vim=1
