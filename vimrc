@@ -1,8 +1,45 @@
+" PLUGINS
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'nvie/vim-flake8'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" CONFIGURATION
 set number
+set mouse=nvi
+set updatetime=250
 
 " convifure status line
 set statusline=%f%m%r%h\ [%L]\ [%{&ff}]\ %y%=[%p%%]\ [line:%05l,col:%02v]
 set laststatus=2
+
 " Configure tabbing - using PEP8 style
 set tabstop=4
 set shiftwidth=4
@@ -12,6 +49,10 @@ set expandtab
 " Set cursor crosshairs
 set cursorline
 set cursorcolumn
+
+" Set persistent undo
+set undodir=~/.vim/undodir 
+set undofile 
 
 " Highlight all spaces past column 80
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -58,10 +99,6 @@ else
 endif " has("autocmd")
 
 set backspace=indent,eol,start
-set tabstop=2      " To match the sample file
-set shiftwidth=2
-set noexpandtab    " Use tabs, not spaces
-%retab!            " Retabulate the whole file
 set history=50
 set ruler
 
